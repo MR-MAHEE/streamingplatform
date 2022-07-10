@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import { useSelector,useDispatch } from "react-redux/es/exports";
 import { useSelector, useDispatch } from "react-redux";
 import "../Header.css";
@@ -29,13 +29,11 @@ let Header = () => {
             src={logo}
             alt={"logo"}
             style={{ width: "8%" }}
-            // class="card-img-top"
+           
           />
           <form className="d-flex">
-            {/* <input  className="form-control" onChange={handleChange} type='text' placeholder="Search movies"   />
-             */}
-            <input className="header-input"
-            
+            <input
+              className="header-input"
               style={{
                 height: 30,
                 background: "rgba(255, 255, 255, 0.06)",
@@ -57,10 +55,10 @@ let Header = () => {
                 borderTopRightRadius: 10,
                 borderBottomRightRadius: 10,
               }}
-              onClick={handleSubmit}>
-              <img src={Search} />
+              onClick={handleSubmit}
+            >
+              <img src={Search} alt="search" />
             </div>
- 
           </form>
         </div>
       </nav>
