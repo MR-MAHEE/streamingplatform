@@ -4,6 +4,8 @@ import { allMoviesAction, selectedMoviesAction } from "../Redux/Actions";
 import { Link, useNavigate } from 'react-router-dom';
 import BgContainer from "./BgContainer";
 import ReactPaginate from 'react-paginate'
+import player from '../assets/player.png'
+import star from '../assets/star.png'
 const Card = () => {
   const [id,setId]=useState("")
   const dispatch = useDispatch();
@@ -44,40 +46,51 @@ const Card = () => {
      {searchMovies&&searchMovies.map((item)=>{
             return(
              
-                 <div class="col">
-                 <div class="card" style={{height:"80%", backgroundColor:"red"}}>
-                 <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} class="card-img-top h-75" alt="..." onClick={()=>{handleClick(item.id);
-               }}/>
-                 <div class="card-body">
-                 <h5 class="card-title">{item.title} 
-                 <div>4.6/5</div></h5>
-                 <p class="card-text"></p>
-            </div>
-           </div>
-         </div>
+              <div class="card p-0 m-2" style={{width: "19.7rem", height:"16rem",backgroundColor:"#283593"}}>
+              <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} style={{height:"70%", width:"100%"}} onClick={()=>{handleClick(item.id)}}/>
+          
+    <div class="row no-gutters">
+      <div class="col-md-8">
+        <div className="m-2">
+        <div class="" style={{height:"100%%", width:"100%"}}>
+          <h6 class="card-title text-white">{item.title}</h6>
+          <p class="card-text"><img src={star} class="card-img ms-2" alt="hi" style={{height:"4%", width:"6%"}}/><small class="text-white">4.6/5</small></p>
+        </div>
+        </div>
+      </div>
+      <div class="col-md-4 pt-3">
+        <div>
+        <img src={player} class="card-img ms-2" alt="..." style={{height:"70%", width:"40%"}}/>
+      </div>
+      </div>
+  </div>
+  </div>
      )
      })}</div>
   ):(
     <div class="row row-cols-1 row-cols-md-4 g-4 m-2">
     {allMovies&&allMovies.map((item)=>{
            return(
-            
-                <div class="col">
-                <div class="card" style={{height:"40%", backgroundColor:"red"}}>
-                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                z class="card-img-top h-75" alt="..." onClick={()=>{handleClick(item.id);
-              // setMovie_id(item.id);
-
-              // console.log(setMovie_id);
-              console.log(item.id)
-              }}/>
-                <div class="card-body">
-                <h5 class="card-title">{item.title} 
-                <div>4.6/5</div></h5>
-                <p class="card-text"></p>
-           </div>
-          </div>
-        </div>
+            <div class="card p-0 m-2" style={{width: "19.7rem", height:"16rem",backgroundColor:"#283593"}}>
+            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} style={{height:"70%", width:"100%"}} onClick={()=>{handleClick(item.id)}}/>
+        
+  <div class="row no-gutters">
+    <div class="col-md-8">
+      <div className="m-2">
+      <div class="" style={{height:"100%%", width:"100%"}}>
+        <h6 class="card-title text-white">{item.title}</h6>
+        <p class="card-text"><img src={star} class="card-img ms-2" alt="hi" style={{height:"4%", width:"6%"}}/><small class="text-white">4.6/5</small></p>
+      </div>
+      </div>
+    </div>
+    <div class="col-md-4 pt-3">
+      <div>
+      <img src={player} class="card-img ms-2" alt="..." style={{height:"70%", width:"40%"}}/>
+    </div>
+    </div>
+</div>
+</div>
+       
     )
     })}</div>
   )}

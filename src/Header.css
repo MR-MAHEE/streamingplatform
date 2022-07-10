@@ -1,0 +1,22 @@
+.navbar{
+    background-color:#283593
+}
+.navbar-brand{
+
+
+
+background: linear-gradient(180deg, #FF5E62 0%, #FF9966 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
+}
+.btn{
+    background-color:#FF9966
+}
+
+input.header-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+    margin-left: 20px;
+  }
