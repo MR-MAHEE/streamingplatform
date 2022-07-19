@@ -1,8 +1,8 @@
 import Actiontype from "./Actiontype";
 const initialState = {
   allMovies: [],
-  searchMovies: "",
   selectedMovies: [],
+  page: 1,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -13,18 +13,26 @@ export const reducer = (state = initialState, action) => {
         ...state,
         allMovies: action.allMovies,
       };
-
     case Actiontype.SEARCH_MOVIES:
       return {
         ...state,
-        searchMovies: action.searchMovies,
+        allMovies: action.searchMovies,
+      };
+    case Actiontype.SEARCH_MOVIES_PAGE:
+      return {
+        ...state,
+        allMovies: action.searchMoviesPage,
+      };
+    case Actiontype.PAGE:
+      return {
+        ...state,
+        page: action.payload,
       };
     case Actiontype.SELECTED_MOVIE:
       return {
         ...state,
         selectedMovies: action.selectedMovies,
       };
-
     default:
       return state;
   }
