@@ -6,7 +6,6 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-  console.log(action, "reducer");
   switch (action.type) {
     case Actiontype.ALL_MOVIES:
       return {

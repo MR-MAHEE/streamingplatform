@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
 import Card from "./Components/Card";
-import MovieDetails from "./Components/MovieDetails";
+import MovieDetails from "./Components/movieDetails";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {

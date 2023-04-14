@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { allMovies, selectedMovies, searchMovies, searchMoviesPage } from "../Redux/Actions";
+import {
+  allMovies,
+  selectedMovies,
+  searchMovies,
+  searchMoviesPage,
+} from "../Redux/Actions";
 import { Link, useNavigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
-import player from "../assets/player.png";
 import star from "../assets/star.png";
 
 const Card = () => {
@@ -11,15 +15,12 @@ const Card = () => {
   const navigate = useNavigate();
 
   const allMoviesData = useSelector((state) => state.allMovies);
-  console.log(allMoviesData);
-  console.log(allMoviesData.id);
 
   useEffect(() => {
     dispatch(allMovies());
   }, []);
 
   const handleClick = (id) => {
-    console.log(id);
     dispatch(selectedMovies(id));
     navigate("/movie");
   };
@@ -27,7 +28,6 @@ const Card = () => {
   const page = useSelector((state) => state.page);
 
   const handlePageChange = (e) => {
-    console.log(e,'eeeeeeeeeeeeeeeee');
     dispatch(searchMoviesPage(e.selected + 1));
   };
 
@@ -76,6 +76,7 @@ const Card = () => {
                   <img
                     src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                     // className="w-75 mx-3 border p-2"
+                    alt="img"
                   />
                   <div className="card-body font-monospace">
                     <h5 className="card-title">{item.title}</h5>
@@ -99,7 +100,7 @@ const Card = () => {
         <ReactPaginate
           previousLabel={"<<"}
           nextLabel={`>>`}
-          pageCount={page}
+          pageCount={500}
           onPageChange={handlePageChange}
           containerClassName={"pagination justify-content-center"}
           pageClassName={"page-item"}
