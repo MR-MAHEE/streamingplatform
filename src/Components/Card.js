@@ -18,7 +18,7 @@ const Card = () => {
 
   useEffect(() => {
     dispatch(allMovies());
-  }, []);
+  }, [dispatch]);
 
   const handleClick = (id) => {
     dispatch(selectedMovies(id));
