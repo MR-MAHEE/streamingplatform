@@ -6,7 +6,7 @@ import {
   searchMovies,
   searchMoviesPage,
 } from "../Redux/Actions";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import star from "../assets/star.png";
 
@@ -25,7 +25,7 @@ const Card = () => {
     navigate("/movie");
   };
 
-  const page = useSelector((state) => state.page);
+  // const page = useSelector((state) => state.page);
 
   const handlePageChange = (e) => {
     dispatch(searchMoviesPage(e.selected + 1));
